@@ -2,7 +2,7 @@ const { v4: uuidv4 } = require("uuid");
 
 const TransactionsModel = [
   {
-    id: 1,
+    id: uuidv4(),
     itemName: "Savings",
     amount: 1000,
     date: new Date(),
@@ -10,7 +10,7 @@ const TransactionsModel = [
     category: "Savings",
   },
   {
-    id: 2,
+    id: uuidv4(),
     itemName: "Income",
     amount: 5000,
     date: new Date(),
@@ -18,7 +18,7 @@ const TransactionsModel = [
     category: "Income",
   },
   {
-    id: 3,
+    id: uuidv4(),
     itemName: "UberEats - Umi Sushi",
     amount: 37.55,
     date: new Date(),

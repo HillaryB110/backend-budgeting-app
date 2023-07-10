@@ -15,4 +15,40 @@ router.get("/:id", (req, res) => {
   res.send(transaction);
 });
 
+router.post("/", (req, res) => {
+  let newTransaction = req.body;
+
+  if (Object.keys(newTransaction).length === 0) {
+    res.send("Must provide transaction details!");
+  } else {
+    transactionsData.push(newTransaction);
+    res.json(transactionsData);
+  }
+});
+
+router.delete("/:id", (req, res) => {
+  let { id } = req.params;
+
+  let transaction = transactionsData.find((e) => e.id == id);
+
+  let index = transactionsData.indexOf(transaction);
+  transactionsData.splice(index, 1);
+
+  res.json(transactionsData);
+});
+
+router.put("/:id", (req, res) => {
+  let { id } = req.params;
+
+  let transaction = transactionsData.find((e) => e.id == id);
+
+  let index = transactionsData.indexOf(transaction);
+
+  transactionsData[index] = {
+    ...transactionsData[index],
+    ...req.body,
+  };
+  res.json(transactionsData[index]);
+});
+
 module.exports = router;
