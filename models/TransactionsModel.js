@@ -20,7 +20,7 @@ const TransactionsModel = [
   {
     id: uuidv4(),
     itemName: "UberEats - Umi Sushi",
-    amount: 37.55,
+    amount: -37.55,
     date: new Date(),
     from: "Umi Sushi",
     category: "Food",
